@@ -83,3 +83,53 @@ p{
 .header{
   background: radial-gradient(rgb(61, 60, 60), rgb(255,255,255));
 }
+.categories{
+  margin: 70px 0;
+}
+.col{
+  flex-basis:30%;
+  min-width: 250px;
+  margin-bottom: 30px;
+}
+.category-card{
+  display: block;
+  text-align: center;
+}
+.category-card img{
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-radius: 20px;
+}
+.category-title{
+  text-align: center;
+  margin-top: 10px;
+  font-size: 20px;
+  color:rgb(57, 56, 56);
+}
+.category-card:hover img{
+  transform:scale(1.02);
+  box-shadow: 0 0 25px rgba(0,0,0,0.3);
+}
+.featured-categories{
+  max-width: 1080px;
+  margin:auto;
+  padding-left: 25px;
+  padding-right: 25px;
+}
+.title {
+  text-align: center;
+  margin: 40px 0;
+  font-size: 20px;
+  font-weight: bold;
+  position: relative;
+}
+.category-link{
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 18px;
+  transition: color 0.2s;
+}
+.category-card:hover .category-title, .category-card:hover .category-link {
+    color: #000;
+}
