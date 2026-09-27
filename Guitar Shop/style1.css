@@ -167,9 +167,6 @@ p {
 .bestsellers {
   padding: 50px 0;
 }
-
-
-
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -281,53 +278,4 @@ ul {
   background: gray;
   height: 1px;
   margin: 20px 0;
-}
-
-@media(max-width: 900px) {
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media(max-width: 600px) {
-  .navbar {
-    flex-direction: column;
-  }
-
-  nav {
-    text-align: center;
-    margin-top: 15px;
-  }
-
-  nav ul li {
-    margin-right: 10px;
-  }
-
-  .hero h1 {
-    font-size: 35px;
-    line-height: 45px;
-  }
-
-  .product-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .category-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.eguitar {
-
-  text-align: center;
-}
-
-.bass {
-
-  text-align: center;
-}
-
-.acoustic {
-
-  text-align: center;
 }
