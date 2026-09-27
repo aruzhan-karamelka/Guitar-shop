@@ -219,7 +219,10 @@ p {
   font-weight: bold;
   margin-bottom: 15px;
 }
-
+.eguitar, .acoustic, .bass {
+  align-items: center;
+  justify-content: center;
+}
 
 .product-btn:hover {
   background: rgb(57, 56, 56);
