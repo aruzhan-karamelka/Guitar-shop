@@ -279,3 +279,156 @@ ul {
   height: 1px;
   margin: 20px 0;
 }
+.about-section,
+.story-section,
+.team-section,
+.contact-section{
+  padding: 50px 0;
+}
+.about-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-top: 30px;
+}
+.about-row img{
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.about-text h3{
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+.about-text p{
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.story-section{
+  background-color: black;
+  color: white;
+}
+.story-section .title{
+  color: white;
+}
+.history-list{
+  list-style: none;
+  padding: 0;
+  margin-top: 30px;
+  border-left: 2px solid white;
+}
+.history-list li{
+  padding-left: 25px;
+  margin-bottom: 25px;
+  position: relative;
+}
+.history-list li::before{
+  content: "";
+  position: absolute;
+  left: -8px;
+  top: 5px;
+  width: 14px;
+  height: 14px;
+  background-color: white;
+  border-radius: 50%;
+}
+.history-list strong{
+  display: block;
+  font-size: 20px;
+  margin-bottom: 5px;
+  color: white;
+}
+.story-section .history-list span{
+  color: #b5b4b4;
+}
+.team-grid{
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+.team-card{
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+padding: 25px;
+text-align: center;
+}
+.team-card:hover{
+  transform: translateY(-5px);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+.team-card img{
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 15px;
+}
+.team-card h3{
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+.team-card .role{
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 10px;
+  color: #434242;
+}
+.team-card p{
+  font-size: 14px;
+  line-height: 1.6;
+}
+.contact-row{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  margin-top: 30px;
+}
+.contact-details h3{
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.contact-details p{
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.feedback-form{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background: white;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+.feedback-form h3{
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+.feedback-form label{
+  font-size: 14px;
+  font-weight: bold;
+}
+.feedback-form input,
+.feedback-form select,
+.feedback-form textarea{
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 15px;
+}
+.feedback-form input:focus,
+.feedback-form select:focus,
+.feedback-form textarea:focus{
+  outline: none;
+  border-color: black;
+}
+.feedback-form textarea{
+  resize: vertical;
+}
