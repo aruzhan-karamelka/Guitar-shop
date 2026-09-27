@@ -172,3 +172,45 @@ p{
   font-size: 14px;
   margin-bottom: 15px;
 }
+.footer{
+  background: black;
+  color:rgb(181, 180, 180);
+  font-size: 14px;
+  padding: 60px 0 20px;
+
+}
+.footer p{
+  color:rgb(181, 180, 180);
+}
+.footer h3{
+  color: white;
+  margin-bottom: 20px;
+}
+.footer-col-1, .footer-col-2, .footer-col-3{
+  min-width: 250px;
+  margin-bottom: 20px;
+}
+.footer-col-1{
+  flex: 1;
+  text-align: center;
+}
+.footer-col-1 img{
+  width:180px;
+  margin-bottom: 20px;
+}
+.footer-col-2, .footer-col-3{
+  flex-basis: 12%;
+  text-align: center;
+}
+ul{
+  list-style-type: none;
+}
+.copyright{
+  text-align: center;
+}
+.footer hr{
+  border: none;
+  background: gray;
+  height: 1px;
+  margin: 20px 0;
+}
