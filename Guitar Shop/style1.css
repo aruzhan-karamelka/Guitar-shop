@@ -18,7 +18,14 @@ nav {
   flex: 1;
   text-align: right;
 }
-
+nav a[aria-current="page"] {
+  font-weight: bold;
+  border-bottom: 2px solid black;
+}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible {
+  outline: 1px solid black;
+  outline-offset: 2px;
+}
 nav ul {
   display: inline-block;
   list-style-type: none;
