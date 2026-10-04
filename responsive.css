@@ -7,18 +7,20 @@
     flex-direction: row;
     padding: 15px;
   }
-  .nav{
+  nav{
     width: auto;
     text-align:right;
     margin-top: 0;
     flex: 1;
   }
-  .nav ul{
-    display: inline-block;
+  nav ul{
+    display: flex;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 15px;
   }
-  .nav ul li {
-    display: inline-block;
-    margin-right: 12px;
+  nav ul li {
+    margin-right: 0;
   }
   nav a {
     font-size: 17px;
@@ -26,10 +28,6 @@
   .hero{
     flex-direction: row;
     align-items: center;
-  }
-  .hero h1 {
-    font-size: 40px;
-    line-height: 48px;
   }
   .hero-text {
     flex: 1 1 45%;
@@ -76,29 +74,30 @@
     align-items: center;
     padding: 20px;
   }
-  .nav{
+  nav{
     flex: 1;
     text-align:right;
+    width: auto;
+    margin-top: 0;
+  }
+  nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+  nav ul li{
+    margin-right: 0;
+  }
+  nav a {
+    font-size: 20px;
   }
   .logo img {
     width: 110px;
+    height: auto;
   }
   .logo-name {
     font-size: 20px;
-  }
-  .nav ul li {
-    display: inline-block;
-    margin-right: 20px;
-  }
-  .nav ul{
-    display: inline-block;
-  }
-  .nav a {
-    font-size: 40px;
-    line-height: 1.5;
-  }
-  .nav li{
-    margin-left: 20px;
+    margin-top: 0;
   }
   .row {
   display: flex;
