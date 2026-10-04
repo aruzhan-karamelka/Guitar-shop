@@ -193,3 +193,24 @@
     font-size: initial;
   }
 }
+@media (min-width: 48rem) {
+  .about-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+  }
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .contact-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+  .feedback-form {
+    padding: 2rem;
+  }
+}
+@media (min-width: 64rem) {
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
