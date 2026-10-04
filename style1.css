@@ -51,6 +51,7 @@ a {
 }
 .logo img{
   width: 90px;
+  height: auto;
 }
 .logo-name {
   font-size: 20px;
