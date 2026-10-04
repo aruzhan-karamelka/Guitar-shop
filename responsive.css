@@ -20,7 +20,7 @@
     display: inline-block;
     margin-right: 12px;
   }
-  nav a {
+  .nav a {
     font-size: 17px;
   }
   .hero{
@@ -94,8 +94,7 @@
     display: inline-block;
   }
   .nav a {
-    font-size: 40px;
-    line-height: 1.5;
+    font-size: 20px;
   }
   .nav li{
     margin-left: 20px;
@@ -182,7 +181,7 @@
     width: 180px;
   }
   .footer-col-1,
-  .footer-col-2{
+  .footer-col-2,.footer-col-3{
     flex-basis: 12%;
     text-align: center;
   }
