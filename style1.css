@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&display=swap');
+
 * {
   margin: 0;
   padding: 0;
@@ -24,14 +27,21 @@ nav {
   margin-top: 15px;
   text-align: center;
 }
+
 nav a[aria-current="page"] {
   font-weight: bold;
   border-bottom: 2px solid black;
 }
-a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible {
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
   outline: 1px solid black;
   outline-offset: 2px;
 }
+
 nav ul {
   display: flex;
   justify-content: center;
@@ -49,10 +59,12 @@ a {
   color: black;
   font-size: 15px;
 }
-.logo img{
+
+.logo img {
   width: 90px;
   height: auto;
 }
+
 .logo-name {
   font-size: 20px;
   margin-top: 5px;
@@ -86,9 +98,11 @@ p {
   padding-right: 0;
   text-align: center;
 }
+
 .hero-image {
   width: 100%;
 }
+
 .hero-image img {
   max-width: 400px;
   width: 100%;
@@ -102,6 +116,7 @@ p {
   margin: 20px 0;
   line-height: 40px;
 }
+
 .hero p {
   font-size: 15px;
   line-height: 1.6;
@@ -193,7 +208,11 @@ p {
   gap: 20px;
 }
 
+/* Шрифт применяется только к карточкам гитар */
+
 .product-card {
+  font-family: 'Oswald', sans-serif;
+
   border-radius: 15px;
   overflow: hidden;
   transition: transform 0.2s, box-shadow 0.2s;
@@ -227,16 +246,19 @@ p {
 .product-info h3 {
   font-size: 17px;
   margin-bottom: 10px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
 }
 
 .product-type {
   font-size: 14px;
   margin-bottom: 15px;
+  font-weight: 400;
 }
 
 .product-price {
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 15px;
 }
 
@@ -267,7 +289,8 @@ p {
   margin-bottom: 20px;
   font-size: 18px;
 }
-.footer .row{
+
+.footer .row {
   flex-direction: column;
 }
 
