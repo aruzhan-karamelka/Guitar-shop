@@ -19,12 +19,12 @@ html {
   padding: 15px 10px;
 }
 
-.nav {
+nav {
   width: 100%;
   margin-top: 15px;
   text-align: center;
 }
-.nav a[aria-current="page"] {
+nav a[aria-current="page"] {
   font-weight: bold;
   border-bottom: 2px solid black;
 }
@@ -32,7 +32,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   outline: 1px solid black;
   outline-offset: 2px;
 }
-.nav ul {
+nav ul {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -40,8 +40,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   list-style-type: none;
 }
 
-.nav ul li {
-  margin-right: 0 px;
+nav ul li {
+  margin-right: 0;
 }
 
 a {
