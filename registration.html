@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Dream&Strings</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="responsive.css">
+</head>
+<body>
+    <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" width="110px" alt="Guitar shop logo">
+        </div>
+        <h3 class="logo-name">Dream&Strings</h3>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about&contact.html">About&Contact</a></li>
+            <li><a href="registration.html" aria-current="page">Register</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    </header>
+    <main class="container">
+        <section class="registration-section">
+            <h1>Create an Account</h1>
+            <p class="registration-intro"> Join Dream&Strings and explore your musical interests.</p>
+            <form id="registrationForm" novalidate>
+                <div class="col-12 col-md-6">
+                    <label for="firstName" class="form-label">First Name:</label>
+                    <input type="text" id="firstName" name="firstName" class="form-control" minlength="2" required>
+                    <div class="invalid-feedback">
+                        Please enter at least 2 characters.
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="lastName" class="form-label">Last Name:</label>
+                    <input type="text" id="lastName" name="lastName" class="form-control" minlength="2" required>
+                    <div class="invalid-feedback">
+                        Please enter at least 2 characters.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="email" class="form-label">Email:</label>
+                    <input type="email" id="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    <div class="form-text">
+                        Enter a valid email address. 
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid email address.
+                    </div>
+                    <div class="valid-feedback">
+                        Email address looks good!
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="password" class="form-label">Password:</label>
+                    <input type="password" id="password" name="password" class="form-control" minlength="8" autocomplete="new-password" required>
+                    <div class="form-text">
+                        Use at least 8 characters. 
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid password (at least 8 characters).
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <label for="confirmPassword" class="form-label">Confirm Password:</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" class="form-control" minlength="8" autocomplete="new-password" required>
+                    <div class="invalid-feedback" id="passwordFeedback">
+                        Please enter the same password in both fields.
+                    </div>
+                </div>
+                <div class="col-12">
+                    <label for="phone" class="form-label">Phone Number:</label>
+                    <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="123456789012" required>
+                    <div class="form-text">
+                        Enter a 10-digit phone number. 
+                    </div>
+                    <div class="invalid-feedback">
+                        Please enter a valid 10-digit phone number.
+                    </div>
+                </div>
+               <div class="col-12">
+                <fieldset>
+                    <legend>Gender (Optional):</legend>
+                    <div class="form-check">
+                        <input type="radio" id="male" name="gender" value="male" class="form-check-input">
+                        <label for="male" class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="female" name="gender" value="female" class="form-check-input">
+                        <label for="female" class="form-check-label">Female</label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" id="preferNotToSay" name="gender" value="prefer_not_to_say" class="form-check-input">
+                        <label for="preferNotToSay" class="form-check-label">Prefer not to say</label>
+                    </div>
+                </fieldset>
+               </div>
+               <div class="col-12">
+                <label for="country" class="form-label">Country:</label>
+                <select id="country" name="country" class="form-control" required>
+                    <option value="">Select a country</option>
+                    <option value="us">United States</option>
+                    <option value="ca">Canada</option>
+                    <option value="uk">United Kingdom</option>
+                    <option value="kz">Kazakhstan</option>
+                    <option value="uz">Uzbekistan</option>
+                    <option value="other">Other</option>
+                </select>
+                <div class="invalid-feedback">
+                    Please select a country.
+                </div>
+               </div>
+               <div id="successMessage" class="alert alert-success mt-4 d-none" role="status" aria-live="polite">
+                Registration successful!
+            </div>
+            <div class="registration-actions">
+                <button type="submit" class="btn">Register</button>
+                <button type="reset" class="btn">Reset</button>
+            </div>
+            <p class="form-text mt-3">
+                This is a demo form. No information will be sent or stored. Use sample details for testing.
+            </p>
+            </form>
+        </section>
+    </main>
+    <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <img src="images/logo-inverted.png" width="125px" alt="Guitar Shop Logo">
+          <p>Our main purpose is to give everyone opportunity to play guitars of different types, colors, and sounds.
+          </p>
+        </div>
+        <div class="footer-col-2">
+          <h3>Who worked on web-site</h3>
+          <ul>
+            <li>Myrzabekova Aruzhan</li>
+            <li>Berdibek Ali</li>
+            <li>Bektassova Malika</li>
+          </ul>
+        </div>
+        <div class="footer-col-3">
+          <h3>The html pages</h3>
+          <ul>
+            <li>Aruzhan - Home</li>
+            <li>Ali - Products</li>
+            <li>Malika - About&Contact</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="copyright">Copyright &copy 2026 Guitar Shop</p>
+    </div>
+  </footer>
+  <script>
+    const form = document.getElementById('registrationForm');
+    const password = document.getElementById('password');
+    const confirmPassword = document.getElementById('confirmPassword');
+    const passwordFeedback = document.getElementById('passwordFeedback');
+    const successMessage = document.getElementById('successMessage');
+
+    function checkPasswords() {
+        if (confirmPassword.value !==" " && confirmPassword.value !== password.value) {
+            confirmPassword.setCustomValidity("Passwords do not match");
+            passwordFeedback.textContent = "Passwords do not match.";
+        } else {
+            confirmPassword.setCustomValidity("");
+            passwordFeedback.textContent = "Please enter the same password in both fields.";
+        }
+    }
+
+    password.addEventListener('input', checkPasswords);
+    confirmPassword.addEventListener('input', checkPasswords);
+
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        checkPasswords();
+        form.classList.add('was-validated');
+        successMessage.classList.add('d-none');
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+            return;
+        } 
+        successMessage.classList.remove('d-none');
+    });
+    form.addEventListener('reset', function() {
+        form.classList.remove('was-validated');
+        confirmPassword.setCustomValidity("");
+        passwordFeedback.textContent = "Please enter the same password in both fields.";
+        successMessage.classList.add('d-none');
+    });
+  </script>
+</body>
+</html>
