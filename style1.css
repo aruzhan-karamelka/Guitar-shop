@@ -710,3 +710,6 @@ ul {
   border-color: rgb(90, 90, 90);
   color: white;
 }
+.was-validated .form-control:valid ~ .invalid-feedback{
+  display: none !important;
+}
