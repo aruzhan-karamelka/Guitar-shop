@@ -713,3 +713,6 @@ ul {
 .was-validated .form-control:valid ~ .invalid-feedback{
   display: none !important;
 }
+.was-validated .form-control:invalid ~ .invalid-feedback{
+  display: block !important;
+}
