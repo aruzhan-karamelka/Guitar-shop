@@ -186,7 +186,7 @@
     const successMessage = document.getElementById('successMessage');
 
     function checkPasswords() {
-        if (confirmPassword.value !==" " && confirmPassword.value !== password.value) {
+        if (confirmPassword.value !=="" && confirmPassword.value !== password.value) {
             confirmPassword.setCustomValidity("Passwords do not match");
             passwordFeedback.textContent = "Passwords do not match.";
         } else {
