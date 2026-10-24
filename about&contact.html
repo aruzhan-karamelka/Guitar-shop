@@ -125,18 +125,23 @@
     <section id="faq" class="faq-section">
       <div class="container">
         <h2 class="title">Frequently asked questions</h2>
-        <details>
-          <summary>How can I contact the team?</summary>
-          <p>Use the contact information on this page.</p>
-        </details>
-        <details>
-          <summary>Do you offer a warranty?</summary>
-          <p>Yes, all guitars come with a 24-month warranty.</p>
-        </details>
-        <details>
-          <summary>Can I return a guitar?</summary>
-          <p>Yes, within 14 days in original condition.</p>
-        </details>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">How can I contact the team?</button>
+          <div class="faq-answer" hidden>
+            <p>Use the contact information on this page.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Do you offer a warranty?</button>
+          <div class="faq-answer" hidden>
+            <p>Yes, all guitars come with a 24-month warranty.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" aria-expanded="false">Can I return a guitar?</button>
+          <div class="faq-answer" hidden>
+            <p>Yes, within 14 days in original condition.</p></div>
+        </div>
       </div>
     </section>
   </main>
@@ -178,6 +183,21 @@
       } else{
         contactForm.classList.add('was-validated');
       }
+    });
+
+    const faqButtons = document.querySelectorAll('.faq-question');
+    faqButtons.forEach(function(button){
+      button.addEventListener('click', function(){
+        const answer = button.nextElementSibling;
+        const isHidden = answer.hasAttribute('hidden');
+        if(isHidden){
+          answer.removeAttribute('hidden');
+          button.setAttribute('aria-expanded', 'true');
+        }else{
+          answer.setAttribute('hidden', '');
+          button.setAttribute('aria-expanded', 'false');
+        }
+      });
     });
   </script>
 </body>
