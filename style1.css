@@ -743,3 +743,128 @@ ul {
 .was-validated .form-control:invalid ~ .invalid-feedback{
   display: block !important;
 }
+.welcome-section{
+  text-align: center;
+  padding: 30px 20px;
+  margin: 30px auto;
+  max-width: 600px;
+}
+.welcome-section h2{
+  margin-bottom: 15px;
+}
+.welcome-section p{
+  margin-bottom: 15px;
+}
+.welcome-section label{
+  display: block;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.welcome-section input{
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  padding: 10px;
+  margin: 0 auto 15px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+.welcome-section button{
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 30px;
+}
+#welcomeMessage {
+  margin-top: 20px;
+  font-weight: bold;
+}
+body {
+  background-color: #ffffff;
+  color: #222222;
+  transition: background-color 0.3s, color 0.3s;
+}
+body.light-theme {
+  background-color: #ffffff;
+  color: #111;
+}
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+.theme-section {
+  text-align: center;
+  padding: 25px 20px;
+  margin: 20px auto;
+}
+#themeBtn {
+  padding: 10px 20px;
+  border: 1px solid #888888;
+  border-radius: 30px;
+  cursor: pointer;
+  background-color: #e8e8e8;
+  color: #222222;
+  font-weight: bold;
+}
+.category-image img,
+.product-image img {
+  border-radius: 20px;
+  background: #ffffff;
+  padding: 8px;
+}
+body.dark-theme .header {
+  background: radial-gradient(#767676, #1c1c1c);
+}
+
+body.dark-theme a,
+body.dark-theme p,
+body.dark-theme .logo-name,
+body.dark-theme .category-link {
+  color: #ffffff;
+}
+body.dark-theme .category-link:hover {
+  color: #dddddd;
+}
+body.dark-theme nav a[aria-current="page"] {
+  border-bottom-color: #ffffff;
+}
+body.dark-theme a:focus-visible,
+body.dark-theme button:focus-visible,
+body.dark-theme input:focus-visible {
+  outline-color: #ffffff;
+}
+body.dark-theme .category-card,
+body.dark-theme .product-card {
+  background-color: #3a3a3a;
+  border: 1px solid #ffffff;
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.08);
+}
+body.dark-theme .category-card:hover,
+body.dark-theme .product-card:hover {
+  box-shadow: 0 5px 20px rgba(255, 255, 255, 0.2);
+}
+body.dark-theme .btn {
+  background: #111111;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+body.dark-theme .btn:hover {
+  background: #111;
+}
+body.dark-theme #themeBtn,
+body.dark-theme .welcome-section button {
+  background-color: #111;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+}
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+ 
+button,
+.btn {
+  font-weight: bold;
+}

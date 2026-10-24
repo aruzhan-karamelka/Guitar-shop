@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="responsive.css">
   
 </head>
-<body>
+<body class="light-theme">
   <header class="header">
     <div class="container">
       <div class="navbar">
@@ -26,6 +26,22 @@
           </ul>
         </nav>
       </div>
+      <section class="theme-section">
+        <h2>Choose Your Theme</h2>
+        <button type="button" id="themeBtn">
+          Switch to Dark Theme
+        </button>
+      </section>
+      <section class="welcome-section">
+        <h2>Welcome to Dream&Strings!</h2>
+        <p>Enter your name to get a personalized welcome.</p>
+        <label for="userName">Your name: </label>
+        <input type="text" id="userName" placeholder="Enter your name">
+        <button type="button" id="welcomeBtn">
+          Show Welcome
+        </button>
+        <p id="welcomeMessage">Welcome message will appear here.</p>
+      </section>
       <section class="hero">
         <div class="row">
           <div class="hero-text">
@@ -181,6 +197,6 @@
       <p class="copyright">Copyright &copy 2026 Guitar Shop</p>
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
-
 </html>
