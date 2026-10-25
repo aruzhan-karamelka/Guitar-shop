@@ -40,6 +40,40 @@
                 </div>
             </section>
         </div>
+        <section id="live-search">
+            <h2>Search Products</h2>
+
+            <label for="searchInput">Search by guitar name:</label>
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Type a guitar name..."
+            >
+
+            <p id="resultCount"></p>
+            <p id="noResults" hidden>No results found</p>
+        </section>
+
+        <section id="favourites">
+    <h2>My Favourite Guitars</h2>
+
+    <form id="favouriteForm">
+        <label for="favouriteInput">Guitar name:</label>
+        <input
+            type="text"
+            id="favouriteInput"
+            placeholder="Enter a guitar name"
+        >
+
+        <button type="submit">Add</button>
+    </form>
+
+    <p id="favouriteCount">Total items: 0</p>
+
+    <ul id="favouriteList"></ul>
+
+    <p id="favouriteError" role="status"></p>
+</section>
     </header>
     <br>
     <br>
@@ -227,6 +261,7 @@
     </div>
   </footer>
 
+    <script src="script.js" defer></script>
 </body>
 
 </html>
