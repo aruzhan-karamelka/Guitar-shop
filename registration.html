@@ -25,6 +25,8 @@
             <li><a href="registration.html" aria-current="page">Register</a></li>
           </ul>
         </nav>
+         <button type="button" id="themeBtn" class="theme-toggle" aria-pressed="false">
+          Dark Mode</button>
       </div>
     </div>
     </header>
@@ -32,7 +34,7 @@
         <section class="registration-section">
             <h1>Create an Account</h1>
             <p class="registration-intro"> Join Dream&Strings and explore your musical interests.</p>
-            <form id="registrationForm" novalidate>
+            <form id="registrationForm" class="registration-form" novalidate>
                 <div class="col-12 col-md-6">
                     <label for="firstName" class="form-label">First Name:</label>
                     <input type="text" id="firstName" name="firstName" class="form-control" minlength="2" required>
@@ -79,7 +81,7 @@
                 </div>
                 <div class="col-12">
                     <label for="phone" class="form-label">Phone Number:</label>
-                    <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="123456789012" required>
+                    <input type="tel" id="phone" name="phone" class="form-control" pattern="[0-9]{10}" placeholder="1234567890" required>
                     <div class="form-text">
                         Enter a 10-digit phone number. 
                     </div>
@@ -175,46 +177,10 @@
         </div>
       </div>
       <hr>
-      <p class="copyright">Copyright &copy 2026 Guitar Shop</p>
+      <p class="copyright">Copyright &copy; 2026 Guitar Shop</p>
     </div>
   </footer>
-  <script>
-    const form = document.getElementById('registrationForm');
-    const password = document.getElementById('password');
-    const confirmPassword = document.getElementById('confirmPassword');
-    const passwordFeedback = document.getElementById('passwordFeedback');
-    const successMessage = document.getElementById('successMessage');
-
-    function checkPasswords() {
-        if (confirmPassword.value !=="" && confirmPassword.value !== password.value) {
-            confirmPassword.setCustomValidity("Passwords do not match");
-            passwordFeedback.textContent = "Passwords do not match.";
-        } else {
-            confirmPassword.setCustomValidity("");
-            passwordFeedback.textContent = "Please enter the same password in both fields.";
-        }
-    }
-
-    password.addEventListener('input', checkPasswords);
-    confirmPassword.addEventListener('input', checkPasswords);
-
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        checkPasswords();
-        form.classList.add('was-validated');
-        successMessage.classList.add('d-none');
-        if (!form.checkValidity()) {
-            event.stopPropagation();
-            return;
-        } 
-        successMessage.classList.remove('d-none');
-    });
-    form.addEventListener('reset', function() {
-        form.classList.remove('was-validated');
-        confirmPassword.setCustomValidity("");
-        passwordFeedback.textContent = "Please enter the same password in both fields.";
-        successMessage.classList.add('d-none');
-    });
-  </script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
