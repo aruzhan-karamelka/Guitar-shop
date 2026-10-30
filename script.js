@@ -175,26 +175,26 @@ if(favouriteForm) {
 
 
 $(function() {
-    $('.faq-question').on('click', function() {
-        $(this).next('.faq-answer').stop(true, true).slideToggle(300);
-        let isExpanded = $(this).attr('aria-expanded') === 'true';
-        $(this).attr('aria-expanded', !isExpanded);
-    });
-
-    $('#contactForm').on('submit', function(e) {
-        e.preventDefault();
-        let email = $('#email').val().trim();
-        let isEmailValid = email.includes('@') && email.includes('.');
-        if (this.checkValidity() && isEmailValid) {
-            $('#successMessage').removeClass('d-none').hide().fadeIn(300);
-            this.reset();
-            $(this).removeClass('was-validated');
-            $('.form-control').removeClass('is-invalid is-valid');
-        } else {
-            $(this).addClass('was-validated');
-            if (!isEmailValid) {
-                $('#email').addClass('is-invalid');
-            }
-        }
-    });
+  $('.faq-answer').hide();
+  $('.faq-question').on('click', function() {
+    $(this).next('.faq-answer').stop(true, true).slideToggle(300);
+    let isExpanded = $(this).attr('aria-expanded') === 'true';
+    $(this).attr('aria-expanded', !isExpanded);
+  });
+  $('#contactForm').on('submit', function(e) {
+    e.preventDefault();
+    let email = $('#email').val().trim();
+    let isEmailValid = email.includes('@') && email.includes('.');
+    if (this.checkValidity() && isEmailValid) {
+      $('#successMessage').removeClass('d-none').hide().fadeIn(300);
+      this.reset();
+      $(this).removeClass('was-validated');
+      $('.form-control').removeClass('is-invalid is-valid');
+    } else {
+      $(this).addClass('was-validated');
+      if (!isEmailValid) {
+        $('#email').addClass('is-invalid');
+      }
+    }
+  });
 });
