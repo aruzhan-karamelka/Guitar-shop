@@ -924,9 +924,7 @@ body.dark-theme.theme-toggle{
 body.dark-theme .theme-toggle:hover{
   background: #444;
 }
-[hidden] {
-  display: none !important;
-}
+
 .hero-button, #themeBtn, #welcomeBtn{
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }

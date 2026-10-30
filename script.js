@@ -170,34 +170,27 @@ favouriteForm.addEventListener("submit", function(event) {
     updateFavouriteCount();
 });
 
+$(function() {
+    $('.faq-question').on('click', function() {
+        $(this).next('.faq-answer').stop(true, true).slideToggle(300);
+        let isExpanded = $(this).attr('aria-expanded') === 'true';
+        $(this).attr('aria-expanded', !isExpanded);
+    });
 
-
-
-const contactForm = document.getElementById('contactForm');
-  contactForm.addEventListener('submit', function (event){
-  event.preventDefault();
-  if (contactForm.checkValidity()){
-    window.location.href = 'demo-result.html';
-  } else{
-    contactForm.classList.add('was-validated');
-  }
+    $('#contactForm').on('submit', function(e) {
+        e.preventDefault();
+        let email = $('#email').val().trim();
+        let isEmailValid = email.includes('@') && email.includes('.');
+        if (this.checkValidity() && isEmailValid) {
+            $('#successMessage').removeClass('d-none').hide().fadeIn(300);
+            this.reset();
+            $(this).removeClass('was-validated');
+            $('.form-control').removeClass('is-invalid is-valid');
+        } else {
+            $(this).addClass('was-validated');
+            if (!isEmailValid) {
+                $('#email').addClass('is-invalid');
+            }
+        }
+    });
 });
-
-const faqButtons = document.querySelectorAll('.faq-question');
-faqButtons.forEach(function(button){
-  button.addEventListener('click', function(){
-    const answer = button.nextElementSibling;
-    const isHidden = answer.hasAttribute('hidden');
-    if(isHidden){
-      answer.removeAttribute('hidden');
-      button.setAttribute('aria-expanded', 'true');
-    }else{
-      answer.setAttribute('hidden', '');
-      button.setAttribute('aria-expanded', 'false');
-    }
-  });
-});
-
-
-
-
