@@ -120,9 +120,10 @@ function filterCards() {
     noResults.hidden = visibleCount !== 0;
 }
 
-searchInput.addEventListener("input", filterCards);
-
-filterCards();
+if(searchInput) {
+  searchInput.addEventListener("input", filterCards);
+  filterCards();
+}
 
 const favouriteForm = document.getElementById("favouriteForm");
 const favouriteInput = document.getElementById("favouriteInput");
@@ -136,7 +137,8 @@ function updateFavouriteCount() {
         "Total items: " + favouriteList.children.length;
 }
 
-favouriteForm.addEventListener("submit", function(event) {
+if(favouriteForm) {
+  favouriteForm.addEventListener("submit", function(event) {
     event.preventDefault();
 
     const name = favouriteInput.value.trim();
@@ -169,6 +171,8 @@ favouriteForm.addEventListener("submit", function(event) {
 
     updateFavouriteCount();
 });
+}
+
 
 $(function() {
     $('.faq-question').on('click', function() {
