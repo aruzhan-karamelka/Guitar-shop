@@ -739,9 +739,6 @@ ul {
 .was-validated .form-control:valid ~ .invalid-feedback{
   display: none !important;
 }
-.was-validated .form-control:invalid ~ .invalid-feedback{
-  display: block !important;
-}
 .welcome-section{
   text-align: center;
   padding: 30px 20px;
@@ -765,7 +762,7 @@ ul {
   max-width: 300px;
   padding: 10px;
   margin: 0 auto 15px;
-  border: 1px solid #ccc;
+  border: 1px solid #0b0b0b;
   border-radius: 3px;
 }
 .welcome-section button{
@@ -778,6 +775,11 @@ ul {
   margin-top: 20px;
   font-weight: bold;
   font-size: 1.2rem;
+}
+#themeBtn,
+#welcomeBtn {
+    font-size: 16px;
+    padding: 12px 24px;
 }
 body {
   background-color: #ffffff;
@@ -802,7 +804,7 @@ body.dark-theme .form-text{
 }
 #themeBtn {
   padding: 10px 20px;
-  border: 1px solid #888888;
+  border: 1px solid #0b0b0b;
   border-radius: 30px;
   cursor: pointer;
   background-color: #e8e8e8;
@@ -932,7 +934,7 @@ body.dark-theme .theme-toggle:hover{
   transform: translateY(0) scale(0.97);
 }
 .hero-button:focus-visible, #themeBtn:focus-visible, #welcomeBtn:focus-visible{
-  outline: 2px solid  #444444;
+  outline: 2px solid  #4444;
   outline-offset: 4px;
 }
 
@@ -1087,17 +1089,4 @@ body.dark-theme #noResults {
 
 body.dark-theme #enquirySuccess {
     color: #204920;
-}
-
-@media (max-width: 600px) {
-    .product-search,
-    .favourites-section,
-    .products-extra {
-        margin: 20px 12px;
-        padding: 18px;
-    }
-
-    .filter-btn {
-        padding: 8px 12px;
-    }
 }

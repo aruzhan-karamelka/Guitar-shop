@@ -272,3 +272,16 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+@media (max-width: 600px) {
+    .product-search,
+    .favourites-section,
+    .products-extra {
+        margin: 20px 12px;
+        padding: 18px;
+    }
+
+    .filter-btn {
+        padding: 8px 12px;
+    }
+}
