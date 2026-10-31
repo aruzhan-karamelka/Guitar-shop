@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,6 @@
     <title>Guitar shop - Products</title>
     <link rel="stylesheet" href="style1.css">
     <link rel="stylesheet" href="responsive.css">
-  
 </head>
 
 <body>
@@ -17,79 +16,89 @@
                 <div class="logo">
                     <img src="images/logo.png" width="110px" alt="Guitar shop logo">
                 </div>
-                <h3 class="logo-name">Dream&Strings</h3>
+
+                <h3 class="logo-name">Dream&amp;Strings</h3>
+
                 <nav>
                     <ul>
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="products.html" aria-current="page">Products</a></li>
-                        <li><a href="about&contact.html">About&Contact</a></li>
-                         <li><a href="registration.html">Register</a></li>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="products.html" class="active" aria-current="page">Products</a></li>
+                        <li><a href="about&amp;contact.html">About &amp; Contact</a></li>
+                        <li><a href="registration.html">Register</a></li>
                     </ul>
                 </nav>
+
                 <button type="button" id="themeBtn" class="theme-toggle" aria-pressed="false">
-                 Dark Mode</button>
+                    Dark Mode
+                </button>
             </div>
+
             <section class="hero">
                 <div class="row">
                     <div class="hero-text">
                         <h1>Find Your Dream Guitar</h1>
                         <p>Discover guitars that match your sound, style, and passion for music.</p>
-                        <a href="index.html" class="btn"> &#8592; Back to Home Page</a>
+                        <a href="index.html" class="btn">← Back to Home Page</a>
                     </div>
+
                     <div class="hero-image">
-                        <img src="images/dimebag.png">
+                        <img src="images/dimebag.png" alt="Electric guitar on the Dream and Strings products page">
                     </div>
                 </div>
             </section>
         </div>
-        <section id="live-search">
-            <h2>Search Products</h2>
-
-            <label for="searchInput">Search by guitar name:</label>
-            <input
-                type="text"
-                id="searchInput"
-                placeholder="Type a guitar name..."
-            >
-
-            <p id="resultCount"></p>
-            <p id="noResults" hidden>No results found</p>
-        </section>
-
-        <section id="favourites">
-    <h2>My Favourite Guitars</h2>
-
-    <form id="favouriteForm">
-        <label for="favouriteInput">Guitar name:</label>
-        <input
-            type="text"
-            id="favouriteInput"
-            placeholder="Enter a guitar name"
-        >
-
-        <button type="submit">Add</button>
-    </form>
-
-    <p id="favouriteCount">Total items: 0</p>
-
-    <ul id="favouriteList"></ul>
-
-    <p id="favouriteError" role="status"></p>
-</section>
     </header>
+
     <br>
     <br>
     <br>
-    <h1 class="eguitar" id="electric">Electric guitars</h1>
+
+    <section class="favourites-section" id="favourites">
+        <h2>My Favourite Guitars</h2>
+
+        <form id="favouriteForm">
+            <label for="favouriteInput">Guitar name:</label>
+            <input type="text" id="favouriteInput" placeholder="Enter a guitar name">
+            <button type="submit">Add</button>
+        </form>
+
+        <p id="favouriteCount">Total items: 0</p>
+        <ul id="favouriteList"></ul>
+        <p id="favouriteError" role="status"></p>
+        <p id="emptyFavourites">Your favourites list is empty.</p>
+        <p id="favouriteStatus" role="status" aria-live="polite" hidden></p>
+    </section>
+
+    <section class="product-search" id="live-search">
+        <h2>Find Your Guitar</h2>
+        <p>Search and filter our collection</p>
+
+        <label for="searchInput">Search by guitar name</label>
+        <input type="search" id="searchInput" placeholder="Search by guitar name...">
+
+        <div class="filter-buttons" role="group" aria-label="Guitar category">
+            <button type="button" class="filter-btn active" data-category="all" aria-pressed="true">All</button>
+            <button type="button" class="filter-btn" data-category="electric" aria-pressed="false">Electric</button>
+            <button type="button" class="filter-btn" data-category="bass" aria-pressed="false">Bass</button>
+            <button type="button" class="filter-btn" data-category="acoustic" aria-pressed="false">Acoustic</button>
+        </div>
+
+        <p id="resultCount" aria-live="polite"></p>
+        <p id="noResults" hidden>No results found.</p>
+    </section>
+
+    <h2 class="eguitar" id="electric">Electric guitars</h2>
+
     <br>
     <br>
     <br>
+
     <div class="product-grid">
 
-        <article class="product-card">
-            <a href="#" class="product-image">
+        <article class="product-card" data-category="electric">
+            <div class="product-image">
                 <img src="images/guitar1.jpg" alt="Gibson">
-            </a>
+            </div>
 
             <div class="product-info">
                 <h3>Gibson Les Paul Custom Zakk Wylde</h3>
@@ -98,172 +107,279 @@
             </div>
         </article>
 
-
-        <article class="product-card" id="esp">
-            <a href="#" class="product-image">
+        <article class="product-card" id="esp" data-category="electric">
+            <div class="product-image">
                 <img src="images/guitar2.jpg" alt="ESP">
-            </a>
+            </div>
 
             <div class="product-info">
                 <h3>ESP James Hetfield "Snakebyte"</h3>
                 <p class="product-type">2011 Kiso custom shop (FIRST RUN)</p>
                 <p class="product-price">$5,299</p>
-
             </div>
         </article>
 
-
-        <article class="product-card" id="HelloKitty">
-            <a href="#" class="product-image">
+        <article class="product-card" id="HelloKitty" data-category="electric">
+            <div class="product-image">
                 <img src="images/guitar3.jpg" alt="Kitty">
-            </a>
+            </div>
 
             <div class="product-info">
                 <h3>Squier Hello Kitty</h3>
                 <p class="product-type">2025 Edition (Gigbag incl.)</p>
                 <p class="product-price">$999</p>
-
             </div>
         </article>
 
+        <article class="product-card" data-category="electric">
+            <div class="product-image">
+                <img src="images/guitar4.jpg" alt="Gibson">
+            </div>
+
+            <div class="product-info">
+                <h3>Gibson Les Paul Custom ULTIMA</h3>
+                <p class="product-type">Murphy Lab Custom (1964 specs.)</p>
+                <p class="product-price">$19,499</p>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="electric">
+            <div class="product-image">
+                <img src="images/guitar5.jpg" alt="Gibson">
+            </div>
+
+            <div class="product-info">
+                <h3>Washburn 3ST</h3>
+                <p class="product-type">2001 limited run (USA Custom Shop)</p>
+                <p class="product-price">$16,999</p>
+            </div>
+        </article>
+
+        <article class="product-card" data-category="electric">
+            <div class="product-image">
+                <img src="images/guitar6.jpg" alt="Gibson">
+            </div>
+
+            <div class="product-info">
+                <h3>DGZ DimeGuitarZ Culprit</h3>
+                <p class="product-type">2026 Standart run (Made in India)</p>
+                <p class="product-price">$2,499</p>
+            </div>
+        </article>
 
     </div>
 
     <br>
     <br>
     <br>
-    <h1 class="bass" id="bass">Bass guitars</h1>
+
+    <h2 class="bass" id="bass">Bass guitars</h2>
+
     <br>
     <br>
     <br>
+
     <div class="product-grid">
 
-        <article class="product-card"  id="bcrich">
-            <a href="#" class="product-image">
-                <img src="images/bass1.jpg" alt="bcrich">
-            </a>
+        <article class="product-card" id="bcrich" data-category="bass">
+            <div class="product-image">
+                <img src="images/bass1.jpg" alt="B.C. Rich">
+            </div>
 
             <div class="product-info">
                 <h3>B.C Rich Ironbird</h3>
                 <p class="product-type">USA custom made</p>
                 <p class="product-price">$4,499</p>
-
             </div>
         </article>
 
-
-        <article class="product-card">
-            <a href="#" class="product-image">
-                <img src="images/bass2.jpg" alt="yamaha">
-            </a>
+        <article class="product-card" data-category="bass">
+            <div class="product-image">
+                <img src="images/bass2.jpg" alt="Yamaha">
+            </div>
 
             <div class="product-info">
                 <h3>Yamaha TBX1000</h3>
                 <p class="product-type">Gotoh hardware (Japan custom)</p>
                 <p class="product-price">$3,299</p>
-
             </div>
         </article>
 
-
-        <article class="product-card" id="Gibson">
-            <a href="#" class="product-image">
-                <img src="images/bass3.jpg" alt="rex">
-            </a>
+        <article class="product-card" id="Gibson" data-category="bass">
+            <div class="product-image">
+                <img src="images/bass3.jpg" alt="Gibson Thunderbird">
+            </div>
 
             <div class="product-info">
                 <h3>Gibson Thunderbird Rex Brown</h3>
                 <p class="product-type">Limited Rex Brown Signature (USA Custom)</p>
                 <p class="product-price">$9,999</p>
-
             </div>
         </article>
 
+        <article class="product-card" id="bcrich" data-category="bass">
+            <div class="product-image">
+                <img src="images/bass4.jpg" alt="B.C. Rich">
+            </div>
+
+            <div class="product-info">
+                <h3>DEAN ML Bass</h3>
+                <p class="product-type">Korean Made</p>
+                <p class="product-price">$1,499</p>
+            </div>
+        </article>
+
+        <article class="product-card" id="bcrich" data-category="bass">
+            <div class="product-image">
+                <img src="images/bass5.jpg" alt="B.C. Rich">
+            </div>
+
+            <div class="product-info">
+                <h3>B.C Rich Mockinbird</h3>
+                <p class="product-type">Japan Custom</p>
+                <p class="product-price">$2,499</p>
+            </div>
+        </article>
+
+        <article class="product-card" id="bcrich" data-category="bass">
+            <div class="product-image">
+                <img src="images/bass6.jpg" alt="B.C. Rich">
+            </div>
+
+            <div class="product-info">
+                <h3>Warwick Rob Trujillo Signature Bass</h3>
+                <p class="product-type">USA custom made</p>
+                <p class="product-price">$6,499</p>
+            </div>
+        </article>
 
     </div>
+
     <br>
     <br>
     <br>
-    <h1 class="acoustic" id="acoustic">Acoustic guitars</h1>
+
+    <h2 class="acoustic" id="acoustic">Acoustic guitars</h2>
+
     <br>
     <br>
     <br>
+
     <div class="product-grid">
 
-        <article class="product-card" id="takamine">
-            <a href="#" class="product-image">
-                <img src="images/acoustic1.jpg" alt="takamine">
-            </a>
+        <article class="product-card" id="takamine" data-category="acoustic">
+            <div class="product-image">
+                <img src="images/acoustic1.jpg" alt="Takamine">
+            </div>
 
             <div class="product-info">
                 <h3>Takamine DMP551</h3>
                 <p class="product-type">Made in Indonesia</p>
                 <p class="product-price">$399</p>
-
             </div>
         </article>
 
-
-        <article class="product-card">
-            <a href="#" class="product-image" >
-                <img src="images/acoustic2.jpg" alt="fenderac">
-            </a>
+        <article class="product-card" data-category="acoustic">
+            <div class="product-image">
+                <img src="images/acoustic2.jpg" alt="Fender">
+            </div>
 
             <div class="product-info">
                 <h3>Fender AC350</h3>
                 <p class="product-type">Made in China (Limited run)</p>
                 <p class="product-price">$699</p>
-
             </div>
         </article>
 
-
-        <article class="product-card" id="Epiphone">
-            <a href="#" class="product-image">
-                <img src="images/acoustic3.jpg" alt="epi">
-            </a>
+        <article class="product-card" id="Epiphone" data-category="acoustic">
+            <div class="product-image">
+                <img src="images/acoustic3.jpg" alt="Epiphone">
+            </div>
 
             <div class="product-info">
                 <h3>Epiphone Cortez Jumbo</h3>
                 <p class="product-type">Made in Nashville (Case incl.)</p>
                 <p class="product-price">$2,499</p>
-
             </div>
         </article>
 
+        <article class="product-card" id="takamine" data-category="acoustic">
+            <div class="product-image">
+                <img src="images/acoustic4.jpg" alt="Takamine">
+            </div>
+
+            <div class="product-info">
+                <h3>Ovation DB20</h3>
+                <p class="product-type">Made in China Standart run</p>
+                <p class="product-price">$599</p>
+            </div>
+        </article>
+
+        <article class="product-card" id="takamine" data-category="acoustic">
+            <div class="product-image">
+                <img src="images/acoustic5.jpg" alt="Takamine">
+            </div>
+
+            <div class="product-info">
+                <h3>DEAN ML Acoustic</h3>
+                <p class="product-type">Made in Indonesia</p>
+                <p class="product-price">$899</p>
+            </div>
+        </article>
+
+        <article class="product-card" id="takamine" data-category="acoustic">
+            <div class="product-image">
+                <img src="images/acoustic6.jpg" alt="Takamine">
+            </div>
+
+            <div class="product-info">
+                <h3>Gibson JB-40</h3>
+                <p class="product-type">Made in USA</p>
+                <p class="product-price">$3,999</p>
+            </div>
+        </article>
 
     </div>
-   <footer class="footer">
-    <div class="container">
-      <div class="row">
-        <div class="footer-col-1">
-          <img src="images/logo-inverted.png" width="125px">
-          <p>Our main purpose is to give everyone opportunity to play guitars of different types, colors, and sounds.
-          </p>
-        </div>
-        <div class="footer-col-2">
-          <h3>Who worked on web-site</h3>
-          <ul>
-            <li>Myrzabekova Aruzhan</li>
-            <li>Berdibek Ali</li>
-            <li>Bektassova Malika</li>
-          </ul>
-        </div>
-        <div class="footer-col-3">
-          <h3>The html pages</h3>
-          <ul>
-            <li>Aruzhan - Home</li>
-            <li>Ali - Products</li>
-            <li>Malika - About&Contact</li>
-          </ul>
-        </div>
-      </div>
-      <hr>
-      <p class="copyright">Copyright &copy; 2026 Guitar Shop</p>
-    </div>
-  </footer>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="script.js"></script>
+   
+
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="footer-col-1">
+                    <img src="images/logo-inverted.png" width="125px" alt="Dream and Strings logo">
+                    <p>
+                        Our main purpose is to give everyone opportunity to play guitars
+                        of different types, colors, and sounds.
+                    </p>
+                </div>
+
+                <div class="footer-col-2">
+                    <h3>Who worked on web-site</h3>
+                    <ul>
+                        <li>Myrzabekova Aruzhan</li>
+                        <li>Berdibek Ali</li>
+                        <li>Bektassova Malika</li>
+                    </ul>
+                </div>
+
+                <div class="footer-col-3">
+                    <h3>The html pages</h3>
+                    <ul>
+                        <li>Aruzhan - Home</li>
+                        <li>Ali - Products</li>
+                        <li>Malika - About&amp;Contact</li>
+                    </ul>
+                </div>
+            </div>
+
+            <hr>
+            <p class="copyright">Copyright &copy; 2026 Guitar Shop</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

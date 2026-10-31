@@ -935,3 +935,169 @@ body.dark-theme .theme-toggle:hover{
   outline: 2px solid  #444444;
   outline-offset: 4px;
 }
+
+[hidden] {
+    display: none !important;
+}
+
+.product-search,
+.favourites-section,
+.products-extra {
+    max-width: 900px;
+    margin: 35px auto;
+    padding: 25px;
+    border-radius: 15px;
+    background: #f5f3f0;
+}
+
+.product-search {
+    text-align: center;
+}
+
+.product-search h2,
+.favourites-section h2,
+.products-extra h2 {
+    margin-bottom: 12px;
+}
+
+.product-search label,
+.products-extra label {
+    display: block;
+    margin-top: 14px;
+}
+
+.product-search input,
+.favourites-section input,
+.products-extra input,
+.products-extra textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #aaa;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin: 16px 0;
+}
+
+.filter-btn,
+.favourites-section button,
+.enquiry-submit {
+    padding: 10px 18px;
+    border: 1px solid #444;
+    border-radius: 20px;
+    background: white;
+    cursor: pointer;
+}
+
+.filter-btn.active,
+.filter-btn:hover,
+.enquiry-submit {
+    background: #333;
+    color: white;
+}
+
+#resultCount,
+#favouriteCount {
+    font-weight: bold;
+    margin: 12px 0;
+}
+
+#noResults,
+#favouriteError,
+.field-error {
+    color: #a32323;
+}
+
+#favouriteList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 9px 0;
+    border-bottom: 1px solid #bbb;
+    overflow-wrap: anywhere;
+}
+
+#favouriteList span {
+    min-width: 0;
+}
+
+#emptyFavourites,
+#favouriteStatus {
+    margin-top: 10px;
+}
+
+.products-extra .faq-item {
+    margin: 10px 0;
+}
+
+.products-extra .faq-question {
+    width: 100%;
+}
+
+.products-extra .faq-answer {
+    padding: 12px 18px;
+}
+
+#guitarEnquiry {
+    margin-top: 20px;
+}
+
+#enquirySuccess {
+    padding: 12px;
+    margin-top: 12px;
+    background: #e1f3df;
+    color: #204920;
+    border-radius: 8px;
+}
+
+body.dark-theme .product-search,
+body.dark-theme .favourites-section,
+body.dark-theme .products-extra {
+    background: #303030;
+    color: white;
+}
+
+body.dark-theme .product-search p,
+body.dark-theme .favourites-section p,
+body.dark-theme .products-extra p {
+    color: inherit;
+}
+
+body.dark-theme .filter-btn {
+    color: #222;
+}
+
+body.dark-theme .filter-btn.active {
+    color: white;
+}
+
+body.dark-theme .field-error,
+body.dark-theme #favouriteError,
+body.dark-theme #noResults {
+    color: #ff9999;
+}
+
+body.dark-theme #enquirySuccess {
+    color: #204920;
+}
+
+@media (max-width: 600px) {
+    .product-search,
+    .favourites-section,
+    .products-extra {
+        margin: 20px 12px;
+        padding: 18px;
+    }
+
+    .filter-btn {
+        padding: 8px 12px;
+    }
+}

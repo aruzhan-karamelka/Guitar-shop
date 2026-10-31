@@ -95,83 +95,113 @@ $(function () {
 
 
 
-const searchInput = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".product-card");
-const resultCount = document.getElementById("resultCount");
-const noResults = document.getElementById("noResults");
+$(function () {
+  if (!$("#searchInput").length) return;
 
+  let selectedCategory = "all";
 
-function filterCards() {
-    const searchText = searchInput.value.trim().toLowerCase();
-    let visibleCount = 0;
+  function filterProducts() {
+    const searchText = $("#searchInput").val().trim().toLowerCase();
+    let count = 0;
 
-    cards.forEach(function(card) {
-        const title = card.querySelector("h3").textContent.toLowerCase();
+    $(".product-card").each(function () {
+      const name = $(this).find("h3").text().toLowerCase();
+      const category = $(this).attr("data-category");
+      const matches = name.includes(searchText) &&
+        (selectedCategory === "all" || category === selectedCategory);
 
-        if (title.includes(searchText)) {
-            card.hidden = false;
-            visibleCount++;
-        } else {
-            card.hidden = true;
-        }
+      $(this).toggle(matches);
+
+      if (matches) count++;
     });
 
-    resultCount.textContent = "Results: " + visibleCount;
-    noResults.hidden = visibleCount !== 0;
-}
+    $("#resultCount").text(count + " products found");
+    $("#noResults").prop("hidden", count !== 0);
+  }
 
-if(searchInput) {
-  searchInput.addEventListener("input", filterCards);
-  filterCards();
-}
+  $("#searchInput").on("input", filterProducts);
 
-const favouriteForm = document.getElementById("favouriteForm");
-const favouriteInput = document.getElementById("favouriteInput");
-const favouriteList = document.getElementById("favouriteList");
-const favouriteCount = document.getElementById("favouriteCount");
-const favouriteError = document.getElementById("favouriteError");
+  $(".filter-btn").on("click", function () {
+    selectedCategory = $(this).attr("data-category");
+    $(".filter-btn").removeClass("active").attr("aria-pressed", "false");
+    $(this).addClass("active").attr("aria-pressed", "true");
+    filterProducts();
+  });
 
+  filterProducts();
 
-function updateFavouriteCount() {
-    favouriteCount.textContent =
-        "Total items: " + favouriteList.children.length;
-}
+  function updateFavourites() {
+    const count = $("#favouriteList li").length;
+    $("#favouriteCount").text("Total items: " + count);
+    $("#emptyFavourites").prop("hidden", count !== 0);
+  }
 
-if(favouriteForm) {
-  favouriteForm.addEventListener("submit", function(event) {
+  function showFavouriteStatus(message) {
+    $("#favouriteStatus")
+      .stop(true, true)
+      .text(message)
+      .removeAttr("hidden")
+      .hide()
+      .fadeIn(200)
+      .delay(1200)
+      .fadeOut(300);
+  }
+
+  $("#favouriteForm").on("submit", function (event) {
     event.preventDefault();
 
-    const name = favouriteInput.value.trim();
+    const name = $("#favouriteInput").val().trim();
 
-    if (name === "") {
-        favouriteError.textContent = "Please enter a guitar name.";
-        return;
+    if (!name) {
+      $("#favouriteError").text("Please enter a guitar name.");
+      return;
     }
 
-    favouriteError.textContent = "";
+    $("#favouriteError").text("");
 
-    const item = document.createElement("li");
-    const guitarName = document.createElement("span");
-    const removeButton = document.createElement("button");
+    const item = $("<li></li>");
+    item.append($("<span></span>").text(name));
+    item.append(
+      $("<button></button>")
+        .attr("type", "button")
+        .addClass("remove-favourite")
+        .text("Remove")
+    );
 
-    guitarName.textContent = name;
-    removeButton.textContent = "Remove";
-    removeButton.type = "button";
+    $("#favouriteList").append(item);
+    $("#favouriteInput").val("").trigger("focus");
 
-    removeButton.addEventListener("click", function() {
-        item.remove();
-        updateFavouriteCount();
-    });
+    updateFavourites();
+    showFavouriteStatus("Guitar added to favourites.");
+  });
 
-    item.append(guitarName, " ", removeButton);
-    favouriteList.append(item);
+  $("#favouriteList").on("click", ".remove-favourite", function () {
+    $(this).closest("li").remove();
+    updateFavourites();
+    showFavouriteStatus("Guitar removed from favourites.");
+  });
 
-    favouriteInput.value = "";
-    favouriteInput.focus();
+  updateFavourites();
 
-    updateFavouriteCount();
+  $("#guitarEnquiry").on("submit", function (event) {
+    event.preventDefault();
+
+    const name = $("#enquiryName").val().trim();
+    const email = $("#enquiryEmail").val().trim();
+    const message = $("#enquiryMessage").val().trim();
+    const validEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+    $("#nameError").text(name ? "" : "Please enter your name.");
+    $("#emailError").text(validEmail ? "" : "Please enter a valid email address.");
+    $("#messageError").text(message ? "" : "Please enter your question.");
+    $("#enquirySuccess").prop("hidden", true);
+
+    if (name && validEmail && message) {
+      this.reset();
+      $("#enquirySuccess").removeAttr("hidden").hide().fadeIn(250);
+    }
+  });
 });
-}
 
 
 $(function() {
