@@ -34,6 +34,10 @@
   </header>
   <main id="main-content">
     <h1 class="page-title">About & Contact</h1>
+    <section class="api-section container" style="text-align: center; margin-bottom: 20px;">
+      <h2 class="title">Live Info</h2>
+      <p id="apiData" style="font-weight: bold; color: #555;">Loading dynamic data...</p>
+    </section>
     <section class="about-section">
       <div class="container">
         <h2 class="title">About Our Store</h2>
@@ -116,6 +120,10 @@
               <input type="email" class="form-control" id="email" name="email" autocomplete="email" required>
               <div class="form-text">Your email address.</div>
               <div class="invalid-feedback">Please enter a valid email.</div>
+              <label for="phone" class="form-label">Phone Number</label>
+              <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" placeholder="1234567890" required>
+              <div class="form-text">Enter a 10-digit phone number.</div>
+              <div class="invalid-feedback">Please enter a valid 10-digit phone number.</div>
               <label for="message" class="form-label">Message</label>
               <textarea class="form-control" id="message" name="message" rows="5" minlength="10" maxlength="500" required></textarea>
               <div class="form-text">10 to 500 characters.</div>
@@ -129,22 +137,26 @@
     <section id="faq" class="faq-section">
       <div class="container">
         <h2 class="title">Frequently asked questions</h2>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">How can I contact the team?</button>
-          <div class="faq-answer">
-            <p>Use the contact information on this page.</p>
+        <input type="search" id="faqSearch" class="form-control mb-3" placeholder="Search questions..." style="max-width: 400px; margin: 0 auto 20px;">
+        <div class="faq-list">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">How can I contact the team?</button>
+            <div class="faq-answer">
+              <p>Use the contact information on this page.</p>
+            </div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Do you offer a warranty?</button>
-          <div class="faq-answer">
-            <p>Yes, all guitars come with a 24-month warranty.</p>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Do you offer a warranty?</button>
+            <div class="faq-answer">
+              <p>Yes, all guitars come with a 24-month warranty.</p>
+            </div>
           </div>
-        </div>
-        <div class="faq-item">
-          <button class="faq-question" aria-expanded="false">Can I return a guitar?</button>
-          <div class="faq-answer">
-            <p>Yes, within 14 days in original condition.</p></div>
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">Can I return a guitar?</button>
+            <div class="faq-answer">
+              <p>Yes, within 14 days in original condition.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

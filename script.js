@@ -401,3 +401,65 @@ $(function() {
     }
   });
 });
+$(function() {
+  if(window.location.pathname.includes("demo-result.html")){
+    const savedUser = JSON.parse(localStorage.getItem("dreamStringsUser"));
+    const currentUser = JSON.parse(localStorage.getItem("dreamStringsCurrentUser"));
+    if(savedUser && currentUser && currentUser.email === savedUser.email){
+      $("#loginRequired").hide();
+      $("#profileData").show();
+      $("#logoutBtn").show();
+      $("#welcomeTitle").text("Welcome, " + savedUser.firstName + "!");
+      $("#profileData").html(`
+                <p><strong>First Name:</strong> ${savedUser.firstName}</p>
+                <p><strong>Last Name:</strong> ${savedUser.lastName}</p>
+                <p><strong>Email:</strong> ${savedUser.email}</p>
+                <p><strong>Phone:</strong> ${savedUser.phone}</p>
+                <p><strong>Country:</strong> ${savedUser.country}</p>
+                <p><strong>Gender:</strong> ${savedUser.gender || 'Not specified'}</p>
+                <p><strong>Interests:</strong> ${savedUser.musicalInterests.length ? savedUser.musicalInterests.join(", ") : 'Not specified'}</p>
+            `);
+            $("#logoutBtn").on("click", function(){
+              localStorage.removeItem("dreamStringsCurrentUser");
+              window.location.href = "index.html";
+            });
+    } else{
+      $("#profileData").hide();
+      $("#logoutBtn").hide();
+    }
+  }
+  if($("#faqSearch").length){
+    $("#faqSearch").on("keyup", function(){
+      let value = $(this).val().toLowerCase();
+      $(".faq-item").filter(function(){
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  }
+  if($("#apiData").length){
+    fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
+            .then(response => response.json())
+            .then(data => {
+                $("#apiData").text("Guitar Fact: " + data.text);
+            })
+            .catch(error => {
+                $("#apiData").text("Could not load live data at this time.");
+                console.error("API Error:", error);
+            });
+  }
+  $("#contactForm").off("submit").on("submit", function(e) {
+        e.preventDefault();
+        
+        // Включаем стандартную валидацию Bootstrap
+        this.classList.add('was-validated');
+        
+        // Проверяем валидность всей формы
+        if (this.checkValidity()) {
+            $('#successMessage').removeClass('d-none').hide().fadeIn(300);
+            this.reset();
+            $(this).removeClass('was-validated');
+            // Скрываем сообщение через 3 секунды
+            setTimeout(() => { $('#successMessage').fadeOut(); }, 3000);
+        }
+    });
+});
