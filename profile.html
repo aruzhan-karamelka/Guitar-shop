@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Profile - Guitar shop</title>
+  <link rel="stylesheet" href="style1.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="icon" type="image/x-icon" href="images/logo.png">
+</head>
+<body class="light-theme">
+  <header class="header">
+    <div class="container">
+      <div class="navbar">
+        <div class="logo">
+          <img src="images/logo.png" width="110px" alt="Guitar shop logo">
+        </div>
+        <h3 class="logo-name">Dream&Strings</h3>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="about&contact.html">About&Contact</a></li>
+            <li><a href="registration.html" id="accountLink" aria-current="page">Sign Up / Log In</a></li>
+          </ul>
+        </nav>
+        <button type="button" id="themeBtn" class="theme-toggle" aria-pressed="false">
+          Dark Mode</button>
+      </div>
+    </div>
+  </header>
+  <main class ="container">
+    <section class = "registration-section" id="profileContent">
+        <h1>My Profile</h1>
+        <p>Welcome to your Dream&Strings account.</p>
+        <div class="profile-info">
+          <p><strong>First Name:</strong>
+            <span id="profileFirstName"></span>
+          </p>
+          <p><strong>Last Name:</strong>
+            <span id="profileLastName"></span>
+          </p>
+          <p><strong>Email:</strong>
+            <span id="profileEmail"></span>
+          </p>
+          <p><strong>Phone:</strong>
+            <span id="profilePhone"></span>
+          </p>
+           <p><strong>Country:</strong>
+            <span id="profileCountry"></span>
+          </p>
+           <p><strong>Gender:</strong>
+            <span id="profileGender"></span>
+          </p>
+           <p><strong>Musical Interests:</strong>
+            <span id="profileInterests"></span>
+          </p>
+        </div>
+        <button type="button" id="logoutBtn" class="btn">Logout</button>
+      </section>
+    </main>
+    <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="footer-col-1">
+          <img src="images/logo-inverted.png" width="125px" alt="Guitar Shop Logo">
+          <p>Our main purpose is to give everyone opportunity to play guitars of different types, colors, and sounds.
+          </p>
+        </div>
+        <div class="footer-col-2">
+          <h3>Who worked on web-site</h3>
+          <ul>
+            <li>Myrzabekova Aruzhan</li>
+            <li>Berdibek Ali</li>
+            <li>Bektassova Malika</li>
+          </ul>
+        </div>
+        <div class="footer-col-3">
+          <h3>The html pages</h3>
+          <ul>
+            <li>Aruzhan - Home</li>
+            <li>Ali - Products</li>
+            <li>Malika - About&Contact</li>
+          </ul>
+        </div>
+      </div>
+      <hr>
+      <p class="copyright">Copyright &copy; 2026 Guitar Shop</p>
+    </div>
+  </footer>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="script.js"></script>
+  </body>
+</html>

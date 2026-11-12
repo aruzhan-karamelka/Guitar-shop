@@ -21,7 +21,7 @@
             <li><a href="index.html" aria-current="page">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about&contact.html">About&Contact</a></li>
-             <li><a href="registration.html">Register</a></li>
+            <li><a href="registration.html" id="accountLink">Sign Up / Log In</a></li>
           </ul>
         </nav>
         <button type="button" id="themeBtn" class="theme-toggle" aria-pressed="false">
@@ -31,11 +31,11 @@
         <h2>Welcome to Dream&Strings!</h2>
         <p>Enter your name to get a personalized welcome.</p>
         <label for="userName">Your name: </label>
-        <input type="text" id="userName" placeholder="Enter your name">
+        <input type="text" id="userName" placeholder="Enter your name" minlength="2" required>
         <button type="button" id="welcomeBtn">
           Show Welcome
         </button>
-        <p id="welcomeMessage">Welcome message will appear here.</p>
+        <p id="welcomeMessage" role="status" aria-live="polite">Welcome message will appear here.</p>
       </section>
       <section class="hero">
         <div class="row">
