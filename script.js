@@ -83,17 +83,24 @@ $(function () {
           confirmPasswordInput.setCustomValidity("");
         }
     }
-    function resetRegistrationForm() {
+    $form.on("reset", function () {
+    $form.removeClass("was-validated");
+    $confirmPassword[0].setCustomValidity("");
+    $passwordFeedback.text(
+      "Please enter the same password in both fields."
+    );
+    $successMessage.addClass("d-none").hide();
+   });
+   function resetRegistrationForm() {
       passwordInput.setCustomValidity("");
       confirmPasswordInput.setCustomValidity("");
-      $form[0].reset();
-      $form.removeClass("was-validated");
-      $form.find(".is-valid, .is-invalid").removeClass("is-invalid is-valid");
-      $form.find(".invalid-feedback, .valid-feedback")
-        .removeClass("d-block")
-        .hide();
+        $form[0].reset();
+        clearValidationUI();
+        $successMessage
+          .removeClass("alert-success alert-danger")
+          .text("")
+          .hide();
     }
-    
 
     $form.on("input", "#password", function () {
       checkPasswordStrength();
