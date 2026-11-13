@@ -28,8 +28,8 @@ $(function(){
 $(function(){
   $("#welcomeBtn").on("click", function(){
     const name = $("#userName").val().trim();
-    if(name===""){
-      $("#welcomeMessage").text("Please enter your name.");
+    if(name.length<2){
+      $("#welcomeMessage").text("Please enter your name (at least 2 characters).");
     }else{
       $("#welcomeMessage").text(`Welcome to Dream&Strings, ${name}!`);
     }
@@ -38,58 +38,231 @@ $(function(){
 
 
 
+
 $(function () {
-  const $form = $("#registrationForm");
-  if (!$form.length) {
-    return;
-  }
-  const $password = $("#password");
-  const $confirmPassword = $("#confirmPassword");
-  const $passwordFeedback = $("#passwordFeedback");
-  const $successMessage = $("#successMessage");
-
-  function checkPassword() {
-    const password = $password.val();
-    const confirmPassword = $confirmPassword.val();
-    if (confirmPassword !== "" && confirmPassword !== password) {
-      $confirmPassword[0].setCustomValidity(
-        "Passwords do not match"
-      );
-      $passwordFeedback.text("Passwords do not match.");
-    } else {
-      $confirmPassword[0].setCustomValidity("");
-      $passwordFeedback.text(
-        "Please enter the same password in both fields."
-      );
+    function showSignUp() {
+      $("#registrationForm").show();
+      $("#loginSection").prop("hidden", true);
+      $("#showSignUp").addClass("active");
+      $("#showLogin").removeClass("active");
     }
-  }
-  $form.on("input", "#password, #confirmPassword", function () {
-    checkPassword();
-  });
-  $form.on("submit", function (event) {
-    event.preventDefault();
-    checkPassword();
-    $form.addClass("was-validated");
-    $successMessage.addClass("d-none").hide();
-    if (!$form[0].checkValidity()) {
-      event.stopPropagation();
-      return;
+    function showLogin() {
+      $("#registrationForm").hide();
+      $("#loginSection").prop("hidden", false);
+      $("#showLogin").addClass("active");
+      $("#showSignUp").removeClass("active");
     }
-    $successMessage
-      .removeClass("d-none")
-      .hide()
-      .fadeIn(250);
-  });
+    $("#showSignUp, #showSignUpLink").on("click", showSignUp);
+    $("#showLogin, #showLoginLink").on("click", showLogin);
+    const $form = $("#registrationForm");
+    if ($form.length) {
+      const passwordInput = $("#password")[0];
+      const confirmPasswordInput = $("#confirmPassword")[0];
+      const $successMessage = $("#successMessage");
 
-  $form.on("reset", function () {
+      function checkPasswordStrength() {
+          const value = passwordInput.value;
+          const strongPassword =
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/;
+          if (!strongPassword.test(value)) {
+            passwordInput.setCustomValidity("Weak password");
+          } else {
+            passwordInput.setCustomValidity("");
+          }
+      }
+
+      function checkConfirmPassword() {
+        if (
+          confirmPasswordInput.value !== passwordInput.value ||
+          confirmPasswordInput.value === ""
+        ) {
+          confirmPasswordInput.setCustomValidity(
+            "Passwords do not match"
+          );
+        } else {
+          confirmPasswordInput.setCustomValidity("");
+        }
+    }
+    $form.on("reset", function () {
     $form.removeClass("was-validated");
     $confirmPassword[0].setCustomValidity("");
     $passwordFeedback.text(
       "Please enter the same password in both fields."
     );
     $successMessage.addClass("d-none").hide();
-  });
+   });
+   function resetRegistrationForm() {
+      passwordInput.setCustomValidity("");
+      confirmPasswordInput.setCustomValidity("");
+        $form[0].reset();
+        clearValidationUI();
+        $successMessage
+          .removeClass("alert-success alert-danger")
+          .text("")
+          .hide();
+    }
+
+    $form.on("input", "#password", function () {
+      checkPasswordStrength();
+      checkConfirmPassword();
+    });
+
+    $form.on("input", "#confirmPassword", function () {
+      checkConfirmPassword();
+    });
+
+    $form.on("submit", function (event) {
+      event.preventDefault();
+      checkPasswordStrength();
+      checkConfirmPassword();
+      $form.addClass("was-validated");
+      if (!$form[0].checkValidity()) {
+        event.stopPropagation();
+        return;
+      }
+
+      const user = {
+        firstName: $("#firstName").val().trim(),
+        lastName: $("#lastName").val().trim(),
+        email: $("#email").val().trim().toLowerCase(),
+        password: passwordInput.value,
+        phone: $("#phone").val(),
+        gender: $("input[name='gender']:checked").val() || "",
+        musicalInterests: $("input[name='musicalInterests']:checked")
+          .map(function () {
+              return this.value;
+          }).get(),
+            country: $("#country").val()
+      };
+
+      const existingUser = JSON.parse(
+        localStorage.getItem("dreamStringsUser")
+      );
+      if (existingUser && existingUser.email === user.email) {
+        $successMessage
+          .removeClass("alert-success success-hidden d-none")
+          .addClass("alert-danger")
+          .text("This email is already registered.")
+          .hide()
+          .fadeIn(250);
+        return;
+      }
+
+      localStorage.setItem(
+        "dreamStringsUser",
+        JSON.stringify(user)
+      );
+      $successMessage
+        .removeClass("alert-danger success-hidden d-none")
+        .addClass("alert-success")
+        .text("Registration successful! Please log in.")
+        .hide()
+        .fadeIn(250);
+
+       resetRegistrationForm();
+
+        setTimeout(function () {
+          showLogin();
+          $("#loginEmail").val(user.email);
+        }, 1000);
+      });
+    }
+
+    const $loginForm = $("#loginForm");
+    if ($loginForm.length) {
+      $loginForm.on("submit", function (event) {
+        event.preventDefault();
+        $loginForm.addClass("was-validated");
+        const email = $("#loginEmail")
+            .val().trim().toLowerCase();
+        const password = $("#loginPassword").val();
+        const savedUser = JSON.parse(
+            localStorage.getItem("dreamStringsUser")
+        );
+        $("#loginError").text("");
+        if (!$loginForm[0].checkValidity()) {
+            return;
+        }
+
+        if (
+            !savedUser ||
+            savedUser.email !== email ||
+            savedUser.password !== password
+        ) {
+            $("#loginError").text(
+                "Incorrect email or password. Please try again."
+            );
+
+            return;
+
+        }
+
+        localStorage.setItem(
+            "dreamStringsCurrentUser",
+            JSON.stringify({
+              email: savedUser.email
+            })
+        );
+
+          window.location.href = "profile.html";
+
+      });
+
+    }
+
+    const $profile = $("#profileContent");
+
+    if ($profile.length) {
+      const savedUser = JSON.parse(
+        localStorage.getItem("dreamStringsUser")
+      );
+      const currentUser = JSON.parse(
+        localStorage.getItem("dreamStringsCurrentUser")
+      );
+
+      if (
+        !savedUser ||
+        !currentUser ||
+        currentUser.email !== savedUser.email
+      ) {
+        window.location.href = "registration.html";
+        return;
+      }
+
+      $("#profileFirstName").text(savedUser.firstName);
+      $("#profileLastName").text(savedUser.lastName);
+      $("#profileEmail").text(savedUser.email);
+      $("#profilePhone").text(savedUser.phone);
+      $("#profileCountry").text(savedUser.country);
+      $("#profileGender").text(
+        savedUser.gender || "Not specified"
+      );
+      $("#profileInterests").text(
+        savedUser.musicalInterests.length
+            ? savedUser.musicalInterests.join(", ")
+            : "Not specified"
+      );
+
+      $("#logoutBtn").on("click", function () {
+        localStorage.removeItem("dreamStringsCurrentUser");
+        window.location.href = "index.html";
+      });
+    }
 });
+    
+
+
+$(function(){
+  const currentUser = JSON.parse(
+    localStorage.getItem("dreamStringsCurrentUser")
+  );
+  if(currentUser){
+    $("#accountLink").text("My Profile").attr("href", "profile.html");
+  } else{
+    $("#accountLink").text("Sign Up / Log In").attr("href", "registration.html");
+  }
+});
+
 
 
 
@@ -227,4 +400,66 @@ $(function() {
       }
     }
   });
+});
+$(function() {
+  if(window.location.pathname.includes("demo-result.html")){
+    const savedUser = JSON.parse(localStorage.getItem("dreamStringsUser"));
+    const currentUser = JSON.parse(localStorage.getItem("dreamStringsCurrentUser"));
+    if(savedUser && currentUser && currentUser.email === savedUser.email){
+      $("#loginRequired").hide();
+      $("#profileData").show();
+      $("#logoutBtn").show();
+      $("#welcomeTitle").text("Welcome, " + savedUser.firstName + "!");
+      $("#profileData").html(`
+                <p><strong>First Name:</strong> ${savedUser.firstName}</p>
+                <p><strong>Last Name:</strong> ${savedUser.lastName}</p>
+                <p><strong>Email:</strong> ${savedUser.email}</p>
+                <p><strong>Phone:</strong> ${savedUser.phone}</p>
+                <p><strong>Country:</strong> ${savedUser.country}</p>
+                <p><strong>Gender:</strong> ${savedUser.gender || 'Not specified'}</p>
+                <p><strong>Interests:</strong> ${savedUser.musicalInterests.length ? savedUser.musicalInterests.join(", ") : 'Not specified'}</p>
+            `);
+            $("#logoutBtn").on("click", function(){
+              localStorage.removeItem("dreamStringsCurrentUser");
+              window.location.href = "index.html";
+            });
+    } else{
+      $("#profileData").hide();
+      $("#logoutBtn").hide();
+    }
+  }
+  if($("#faqSearch").length){
+    $("#faqSearch").on("keyup", function(){
+      let value = $(this).val().toLowerCase();
+      $(".faq-item").filter(function(){
+        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+      });
+    });
+  }
+  if($("#apiData").length){
+    fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
+            .then(response => response.json())
+            .then(data => {
+                $("#apiData").text("Guitar Fact: " + data.text);
+            })
+            .catch(error => {
+                $("#apiData").text("Could not load live data at this time.");
+                console.error("API Error:", error);
+            });
+  }
+  $("#contactForm").off("submit").on("submit", function(e) {
+        e.preventDefault();
+        
+        // Включаем стандартную валидацию Bootstrap
+        this.classList.add('was-validated');
+        
+        // Проверяем валидность всей формы
+        if (this.checkValidity()) {
+            $('#successMessage').removeClass('d-none').hide().fadeIn(300);
+            this.reset();
+            $(this).removeClass('was-validated');
+            // Скрываем сообщение через 3 секунды
+            setTimeout(() => { $('#successMessage').fadeOut(); }, 3000);
+        }
+    });
 });

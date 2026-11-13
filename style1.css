@@ -29,6 +29,7 @@ nav {
   width: 100%;
   margin-top: 15px;
   text-align: center;
+  padding-left: 15px;
 }
 
 nav a[aria-current="page"] {
@@ -1053,40 +1054,105 @@ body.dark-theme .theme-toggle:hover{
 }
 
 #enquirySuccess {
-    padding: 12px;
-    margin-top: 12px;
-    background: #e1f3df;
-    color: #204920;
-    border-radius: 8px;
+  padding: 12px;
+  margin-top: 12px;
+  background: #e1f3df;
+  color: #204920;
+  border-radius: 8px;
 }
 
 body.dark-theme .product-search,
 body.dark-theme .favourites-section,
 body.dark-theme .products-extra {
-    background: #303030;
-    color: white;
+  background: #303030;
+  color: white;
 }
 
 body.dark-theme .product-search p,
 body.dark-theme .favourites-section p,
 body.dark-theme .products-extra p {
-    color: inherit;
+  color: inherit;
 }
 
 body.dark-theme .filter-btn {
-    color: #222;
+  color: #222;
 }
 
 body.dark-theme .filter-btn.active {
-    color: white;
+  color: white;
 }
 
 body.dark-theme .field-error,
 body.dark-theme #favouriteError,
 body.dark-theme #noResults {
-    color: #ff9999;
+  color: #ff9999;
 }
 
 body.dark-theme #enquirySuccess {
-    color: #204920;
+  color: #204920;
+}
+.profile-info {
+  margin: 30px 0;
+  padding: 25px;
+  border: 1px solid #cccccc;
+  border-radius: 12px;
+}
+.profile-info p {
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+.profile-info strong {
+  font-weight: bold;
+  display: inline-block;
+  min-width: 150px;
+}
+#logoutBtn {
+  margin-top: 15px;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+}
+body.dark-theme .profile-info {
+  background: #2b2b2b;
+  border-color: #8e8c8c;
+}
+.auth-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 25px 0;
+}
+.auth-tab {
+  padding: 10px 30px;
+  border: 1px solid #888;
+  border-radius: 25px;
+  background: transparent;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.auth-tab.active {
+  background: #333;
+  color: white;
+}
+.auth-tab:hover {
+  transform: translateY(-2px);
+}
+.auth-switch {
+  margin-top: 20px;
+  text-align: center;
+}
+.auth-switch button {
+  border: none;
+  background: none;
+  color: #4c4c4c;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.login-section {
+  margin-top: 30px;
+}
+body.dark-theme .auth-tab.active {
+  background: #f1f1f1;
+  color: #222;
 }

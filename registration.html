@@ -23,7 +23,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="products.html">Products</a></li>
             <li><a href="about&contact.html">About&Contact</a></li>
-            <li><a href="registration.html" aria-current="page">Register</a></li>
+            <li><a href="registration.html" id="accountLink" aria-current="page">Sign Up / Log In</a></li>
           </ul>
         </nav>
          <button type="button" id="themeBtn" class="theme-toggle" aria-pressed="false">
@@ -35,6 +35,10 @@
         <section class="registration-section">
             <h1>Create an Account</h1>
             <p class="registration-intro"> Join Dream&Strings and explore your musical interests.</p>
+            <div class="auto-tabs">
+                <button type="button" id="showSignUp" class="auth-tab active">Sign Up</button>
+                <button type="button" id="showLogin" class="auth-tab">Log In</button>
+            </div>
             <form id="registrationForm" class="registration-form" novalidate>
                 <div class="col-12 col-md-6">
                     <label for="firstName" class="form-label">First Name:</label>
@@ -67,10 +71,10 @@
                     <label for="password" class="form-label">Password:</label>
                     <input type="password" id="password" name="password" class="form-control" minlength="8" autocomplete="new-password" required>
                     <div class="form-text">
-                        Use at least 8 characters. 
+                        Password must contain at least 8 characters, one uppercase letter, one lowercase letter, one number and one special character. 
                     </div>
                     <div class="invalid-feedback">
-                        Please enter a valid password (at least 8 characters).
+                        Password does not meet the requirements.
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
@@ -145,11 +149,47 @@
             <div class="registration-actions">
                 <button type="submit" class="btn">Register</button>
                 <button type="reset" class="btn">Reset</button>
+                <p class="auth-switch">
+                    Already have an account? 
+                    <button type="button" id="showLoginLink">Log In</button>
+                </p>
             </div>
             <p class="form-text mt-3">
-                This is a demo form. No information will be sent or stored. Use sample details for testing.
+                This is a demonstration project. Registration data is stored locally in your browser using localStorage. No server is used.
             </p>
             </form>
+            <section class = "login-section" id="loginSection" hidden>
+                <h2>Welcome Back!</h2>
+                <p> Log in to access your profile.</p>
+                <form id="loginForm" novalidate>
+                    <div class="mb-3">
+                        <label for="loginEmail" class="form-label">
+                            Email:
+                        </label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="name@example.com" required>
+                        <div class="invalid-feedback">
+                            Please enter a valid email.
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="loginPassword" class="form-label"> 
+                            Password:
+                        </label>
+                        <input type="password" id="loginPassword" class="form-control" autocomplete="current-password" required>
+                        <div class="invalid-feedback">
+                            Please enter your password.
+                        </div>
+                    </div>
+                    <p id="loginError" class="text-danger" role="alert" aria-live="polite"></p>
+                    <button type="submit" class="btn">
+                        Log In
+                    </button>
+                </form>
+                <p class="auth-switch">
+                    Don't have an account? 
+                    <button type="button" id="showSignUpLink">Sign Up</button>
+                </p>
+            </section>
         </section>
     </main>
     <footer class="footer">
