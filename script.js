@@ -437,10 +437,10 @@ $(function() {
     });
   }
   if($("#apiData").length){
-    fetch('https://api.quotable.io/random')
+    fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
             .then(response => response.json())
             .then(data => {
-                $("#apiData").text(`"${data.content}" — ${data.author}`);
+                $("#apiData").text("Live Fact: " + data.text);
             })
             .catch(error => {
                 $("#apiData").text("Could not load live data at this time.");
