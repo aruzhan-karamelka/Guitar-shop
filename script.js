@@ -440,7 +440,7 @@ $(function() {
     fetch('https://uselessfacts.jsph.pl/api/v2/facts/random')
             .then(response => response.json())
             .then(data => {
-                $("#apiData").text("Guitar Fact: " + data.text);
+                $("#apiData").text("Live Fact: " + data.text);
             })
             .catch(error => {
                 $("#apiData").text("Could not load live data at this time.");
@@ -450,15 +450,12 @@ $(function() {
   $("#contactForm").off("submit").on("submit", function(e) {
         e.preventDefault();
         
-        // Включаем стандартную валидацию Bootstrap
         this.classList.add('was-validated');
         
-        // Проверяем валидность всей формы
         if (this.checkValidity()) {
             $('#successMessage').removeClass('d-none').hide().fadeIn(300);
             this.reset();
             $(this).removeClass('was-validated');
-            // Скрываем сообщение через 3 секунды
             setTimeout(() => { $('#successMessage').fadeOut(); }, 3000);
         }
     });
